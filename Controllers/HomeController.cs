@@ -28,6 +28,11 @@ namespace WebApplication1.Controllers
 			return View();
 		}
 
+
+		public IActionResult locatie()
+		{
+			return View(locatie);
+		}
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
