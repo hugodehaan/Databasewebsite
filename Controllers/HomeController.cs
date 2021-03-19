@@ -22,17 +22,31 @@ namespace WebApplication1.Controllers
 		{
 			return View();
 		}
-
+		
+		[Route("privacy")]
 		public IActionResult Privacy()
 		{
 			return View();
 		}
 
-
+		[Route("locatie")]
 		public IActionResult locatie()
 		{
-			return View(locatie);
+			return View();
 		}
+
+		public IActionResult ShowAll()
+		{
+			return View();
+		}
+
+		[Route("contact")]
+		public IActionResult Contact()
+		{
+			return View();
+		}
+
+
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
