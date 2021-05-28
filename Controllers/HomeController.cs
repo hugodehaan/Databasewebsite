@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Models;
+using MySql.Data.MySqlClient;
 
 namespace WebApplication1.Controllers
 {
@@ -31,7 +32,7 @@ namespace WebApplication1.Controllers
 		public List<string> GetNames()
 		{
 			// stel in waar de database gevonden kan worden
-			string connectionString = "Server=172.16.160.21;Port=3306;Database=fastfood;Uid=lgg;Pwd=0P%Y9fI2GdO#;";
+			string connectionString = "Server=172.16.160.21;Port=3306;Database=110274;Uid=110274;Pwd=inf2021sql;";
 
 			// maak een lege lijst waar we de namen in gaan opslaan
 			List<string> names = new List<string>();
@@ -81,6 +82,8 @@ namespace WebApplication1.Controllers
 		public IActionResult artiest(string id)
 		{
 			return View();
+
+
 		}
 
 		[Route("contact")]
