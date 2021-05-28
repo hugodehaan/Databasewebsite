@@ -77,7 +77,8 @@ namespace WebApplication1.Controllers
 			return View();
 		}
 
-		public IActionResult ShowAll()
+		[Route("artiest/{id}")]
+		public IActionResult artiest(string id)
 		{
 			return View();
 		}
