@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
 		public List<string> GetNames()
 		{
 			// stel in waar de database gevonden kan worden
-			string connectionString = "Server=172.16.160.21;Port=3306;Database=110274;Uid=110274;Pwd=inf2021sql;";
+			string connectionString = "Server=172.16.160.21;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
 
 			// maak een lege lijst waar we de namen in gaan opslaan
 			List<string> names = new List<string>();
@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
 				conn.Open();
 
 				// SQL query die we willen uitvoeren
-				MySqlCommand cmd = new MySqlCommand("select * from product", conn);
+				MySqlCommand cmd = new MySqlCommand("select * from festival", conn);
 
 				// resultaat van de query lezen
 				using (var reader = cmd.ExecuteReader())

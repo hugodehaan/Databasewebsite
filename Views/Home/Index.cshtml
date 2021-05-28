@@ -1,0 +1,10 @@
+﻿@model List<string> 
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+@foreach(string aap in Model)
+{
+    <p>@aap</p>
+}
