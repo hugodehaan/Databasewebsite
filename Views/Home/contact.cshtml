@@ -2,3 +2,60 @@
     ViewData["Title"] = "Contact";
 }
 
+
+<body>
+    <header>
+
+        @if (ViewData["formsucces"] == "ök")
+        {
+            <p> Het verzenden is gelukt! Bedankt voor het invullen!</p>
+        }
+        @if (Model != null)
+        {
+            <p>
+                Uw naam is: @ViewData["Voornaam"] @ViewData["Achternaam"] <br />
+            </p>
+        }
+
+        <div class="container">
+            <form id="contact" action="" method="post">
+                <h1>Contact formulier</h1>
+                <p>
+                    Voor verdere vragen kunt u ons bereiken door het in te vullen van onderstaand formulier.
+                    <br>
+                </p>
+                <fieldset>
+                    <input placeholder="Voornaam" type="text" tabindex="1" pattern="[A-Za-z].{1}" title="Voornaam" required autofocus>
+                </fieldset>
+                @Html.ValidationMessageFor(m => m.Achternaam)
+                <fieldset>
+                    <input placeholder="Achternaam" type="text" tabindex="2" pattern="[A-Za-z].{1}" title="Achternaam" required autofocus>
+                </fieldset>
+                @Html.ValidationMessageFor(m => m.EMail)
+                <fieldset>
+                    <input placeholder="E-Mail" type="email" tabindex="3" pattern="[A-Za-z]{ 1}" title="EMail" required>
+
+                </fieldset>
+                <fieldset>
+                    <input placeholder="GeboorteDatum DD-MM-YYYY" type="datetime" tabindex="4" title="Geboortedatum">
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Your Phone Number (optional)" type="tel" tabindex="5" pattern="[0-9].{1}" title="tel">
+                </fieldset>
+                <select id="country" name="country">
+                    <option value="Nl">The Netherlands</option>
+                    <option value="Be">Belgium</option>
+                    <option value="Ge">Germany</option>
+                    <option value="GB">England</option>
+                </select>
+                <fieldset>
+                    <textarea placeholder="Schrijf hier uw bericht..." type="text" tabindex="6" pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,}$.{1}" title="Bericht" required></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="Verstuur" type="submit" id="contact-submit" data-submit="...Sending">Verstuur</button>
+                </fieldset>
+            </form>
+        </div>
+
+    </header>
+</body>
