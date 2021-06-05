@@ -27,6 +27,7 @@ header::after {
 
 .logo {
     float: left;
+    margin-left: 100px;
 }
 
 .top-nav {
@@ -79,3 +80,28 @@ li{
      width: 100%;
 
  }
+
+footer {
+    color: #000;
+    background:#757573;
+}
+footer::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+
+.instagram{
+    float: right;
+    margin-right: 700px;
+}
+
+.facebook{
+    float: left;
+    margin-left: 50px;
+}
+
+h2{
+    margin-left:50px;
+}
