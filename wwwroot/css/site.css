@@ -11,4 +11,43 @@ body {
     height: 100%;
     width: 100%;
 }
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+header{
+    background: #55d6aa;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+}
+
+.top-nav {
+    float: right;
+}
+
+
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li{
+    display: inline-block;
+    margin-left: 70px;
+    padding-top:23px;
+}
+
+nav a
+
 
