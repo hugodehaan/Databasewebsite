@@ -27,7 +27,7 @@ header::after {
 
 .logo {
     float: left;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .top-nav {
@@ -51,7 +51,7 @@ li{
     position: relative;
 }
 
- .topnav a{
+ .top-nav a{
     color: #444;
     text-decoration: none;
     text-transform: uppercase;
@@ -59,7 +59,7 @@ li{
     
 }
  .locatie a{
-     margin-left: 500px;
+     margin-left: 50px;
  }
 
  a:hover{
@@ -67,7 +67,7 @@ li{
 
  }
 
- a::before{
+ .top-nav a::before{
      content:'';
      display: block;
      height: 5px;
@@ -80,7 +80,7 @@ li{
      transition: all ease-in-out 250ms;
  }
 
- a:hover::before{
+  .top-nav a:hover::before{
      width: 100%;
 
  }
@@ -106,7 +106,7 @@ footer::after {
     margin-left: 50px;
 }
 
-h2{
+footer h2{
     margin-left:50px;
 }
 

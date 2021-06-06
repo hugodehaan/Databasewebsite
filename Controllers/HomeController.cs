@@ -40,8 +40,8 @@ namespace WebApplication1.Controllers
 			// verbinding maken met de database
 			using (MySqlConnection conn = new MySqlConnection(connectionString))
 			{
-                // verbinding openen
-                conn.Open();
+				// verbinding openen
+				conn.Open();
 
 				// SQL query die we willen uitvoeren
 				MySqlCommand cmd = new MySqlCommand("select * from festival", conn);
@@ -66,8 +66,8 @@ namespace WebApplication1.Controllers
 		}
 
 
-		[Route("privacy")]
-		public IActionResult Privacy()
+		[Route("aboutus")]
+		public IActionResult aboutus()
 		{
 			return View();
 		}
@@ -87,18 +87,20 @@ namespace WebApplication1.Controllers
 		}
 
 		[Route("contact")]
-		public IActionResult contact() 
-		{
+		public IActionResult Contact()
+        {
 			return View();
-		}
+        }
+
 		[HttpPost]
-		public IActionResult Contact(Person person)
+		public IActionResult contact(string firstname, string lastname) 
 		{
-			ViewData["Voornaam"] = person.FirstName;
-			ViewData["Achternaam"] = person.LastName;
-		
+			ViewData["firstname"] = firstname;
+			ViewData["lastname"] = lastname;
+
 			return View();
 		}
+		
 
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
