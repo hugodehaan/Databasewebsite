@@ -51,12 +51,16 @@ li{
     position: relative;
 }
 
- a{
+ .topnav a{
     color: #444;
     text-decoration: none;
     text-transform: uppercase;
     font-size:15px;
+    
 }
+ .locatie a{
+     margin-left: 500px;
+ }
 
  a:hover{
      color:#000;
@@ -105,3 +109,4 @@ footer::after {
 h2{
     margin-left:50px;
 }
+

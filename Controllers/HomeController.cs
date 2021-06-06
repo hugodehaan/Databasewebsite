@@ -78,8 +78,8 @@ namespace WebApplication1.Controllers
 			return View();
 		}
 
-		[Route("artiest/{id}")]
-		public IActionResult artiest(string id)
+		[Route("festival/{id}")]
+		public IActionResult festival(string id)
 		{
 			return View();
 
