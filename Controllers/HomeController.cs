@@ -87,8 +87,16 @@ namespace WebApplication1.Controllers
 		}
 
 		[Route("contact")]
-		public IActionResult Contact()
+		public IActionResult contact() 
 		{
+			return View();
+		}
+		[HttpPost]
+		public IActionResult Contact(Person person)
+		{
+			ViewData["Voornaam"] = person.FirstName;
+			ViewData["Achternaam"] = person.LastName;
+		
 			return View();
 		}
 
