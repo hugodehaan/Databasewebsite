@@ -122,10 +122,10 @@ namespace WebApplication1.Controllers
         }
 
 		[HttpPost]
-		public IActionResult contact(string firstname, string lastname) 
+		public IActionResult contact(Person person) 
 		{
-			ViewData["firstname"] = firstname;
-			ViewData["lastname"] = lastname;
+			ViewData["firstname"] = person.firstname;
+			ViewData["lastname"] = person.lastname;
 
 			return View();
 		}
