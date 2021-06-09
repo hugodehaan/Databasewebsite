@@ -126,13 +126,28 @@ namespace WebApplication1.Controllers
 		public IActionResult contact(Person person) 
 		{
 			if (ModelState.IsValid)
-				return Redirect("/succes");
+				SavePerson(person);
+			return Redirect("/succes");
 
 			return View(person);
 		}
-		
+		private void SavePerson(Person person)
+		{
+			using (MySqlConnection conn = new MySqlConnection(connectionString))
+			{
+				conn.Open();
+				MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(naam, achternaam, emailadres, bericht) VALUES(?naam, ?achternaam, ?emailadres, ?bericht)", conn);
+
+				cmd.Parameters.Add("?naam", MySqlDbType.Text).Value = person.FirstName;
+				cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
+				cmd.Parameters.Add("?emailadres", MySqlDbType.Text).Value = person.Email;
+				cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
+				cmd.ExecuteNonQuery();
+			}
 
 
+
+		}
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

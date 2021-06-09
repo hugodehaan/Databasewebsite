@@ -23,6 +23,14 @@ namespace WebApplication1
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
+			services.AddSession(options =>
+			{
+				options.Cookie.Name = "MyCookie";
+				options.IdleTimeout = TimeSpan.FromSeconds(10);
+				options.Cookie.IsEssential = true;
+			});
+
+			services.AddControllersWithViews();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +49,7 @@ namespace WebApplication1
 			app.UseRouting();
 
 			app.UseAuthorization();
+			app.UseSession();
 
 			app.UseEndpoints(endpoints =>
 			{
