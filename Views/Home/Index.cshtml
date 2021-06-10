@@ -1,13 +1,16 @@
-﻿@model List<string>
+﻿@using WebApplication1.Festival
+@model List<Festival>
 @{
     ViewData["Title"] = "Tigo";
 }
 <h1>@ViewData["Title"]</h1>
+<h1 class="display-4>Welcome, @ViewData["user"]</h1>
 
 <div class="slideshow-container">
-    @foreach(string festival in Model)
+    @foreach(Festival p in Model)
     {
-        <h2>@festival en </h2>
+    <a href="https://localhost:50404/details/@p.id"></a>
+        <h2>@p en </h2>
         <p></p>
     }
 </div>

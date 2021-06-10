@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using WebApplication1.Models;
 using MySql.Data.MySqlClient;
 using SendAndStore.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication1.Controllers
 {
@@ -16,7 +17,7 @@ namespace WebApplication1.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		// stel in waar de database gevonden kan worden
-		string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
+		string connectionString = "Server=172.16.160.21;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
 
 		public HomeController(ILogger<HomeController> logger)
 		{
@@ -25,19 +26,20 @@ namespace WebApplication1.Controllers
 
 		public IActionResult Index()
 		{
+			ViewData["user"] = HttpContext.Session.GetString("User");
 			// Alle namen ophalen
-			var names = GetNames();
+			var names = GetFestival();
 
 			// Stop de namen in de html
 			return View(names);
 		}
 
-		public List<string> GetNames()
+		public List<Festival> GetFestival()
 		{
 		
 
 			// maak een lege lijst waar we de namen in gaan opslaan
-			List<string> names = new List<string>();
+			List<Festival> Festival = new List<Festival>();
 
 			// verbinding maken met de database
 			using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -53,24 +55,38 @@ namespace WebApplication1.Controllers
 				{
 					// elke keer een regel (of eigenlijk: database rij) lezen
 					while (reader.Read())
+
 					{
+						Festival p = new Festival();
 						// selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-						string Name = reader["Naam"].ToString();
+						id = Convert.ToInt32(reader["id"]);
 
 						// voeg de naam toe aan de lijst met namen
-						names.Add(Name);
+						Festival.Add(p);
 					}
 				}
 			}
 
 			// return de lijst met namen
-			return names;
+			return Festival;
 		}
 
 
 		[Route("aboutus")]
 		public IActionResult aboutus()
 		{
+			return View();
+		}
+
+		[Route("login")]
+
+		public IActionResult login(string username, string password)
+		{
+			if(password == "geheim")
+            {
+				HttpContext.Session.SetString("User", username);
+				return Redirect("/");
+            }
 			return View();
 		}
 
@@ -131,7 +147,13 @@ namespace WebApplication1.Controllers
 
 			return View(person);
 		}
-		private void SavePerson(Person person)
+
+    IActionResult View(Person person)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void SavePerson(Person person)
 		{
 			using (MySqlConnection conn = new MySqlConnection(connectionString))
 			{
