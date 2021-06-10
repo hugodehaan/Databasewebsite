@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		// stel in waar de database gevonden kan worden
-		string connectionString = "Server=172.16.160.21;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
+		string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
 
 		public HomeController(ILogger<HomeController> logger)
 		{
