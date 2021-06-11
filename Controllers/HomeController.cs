@@ -63,6 +63,7 @@ namespace WebApplication1.Controllers
 						p.Naam = reader["naam"].ToString();
 						p.Logo = reader["logo"].ToString();
 						p.Prijs = Convert.ToInt32(reader["prijs"]);
+						
 
 						// voeg de naam toe aan de lijst met namen
 						Festival.Add(p);
