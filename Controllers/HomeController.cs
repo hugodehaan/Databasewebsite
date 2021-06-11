@@ -17,9 +17,9 @@ namespace WebApplication1.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		// stel in waar de database gevonden kan worden
-		string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
+		string connectionString = "Server=172.16.160.21;Port=3306;Database=110272;Uid=110272;Pwd=inf2021sql;";
 
-		public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
 		{
 			_logger = logger;
 		}
@@ -28,13 +28,13 @@ namespace WebApplication1.Controllers
 		{
 			ViewData["user"] = HttpContext.Session.GetString("User");
 			// Alle namen ophalen
-			var names = GetFestival();
+			var names = GetFestivals();
 
 			// Stop de namen in de html
 			return View(names);
 		}
 
-		public List<Festival> GetFestival()
+		public List<Festival> GetFestivals()
 		{
 		
 
@@ -59,7 +59,7 @@ namespace WebApplication1.Controllers
 					{
 						Festival p = new Festival();
 						// selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-						id = Convert.ToInt32(reader["id"]);
+						p.Id = Convert.ToInt32(reader["id"]);
 
 						// voeg de naam toe aan de lijst met namen
 						Festival.Add(p);
