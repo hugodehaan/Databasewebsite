@@ -9,8 +9,7 @@
 <div class="slideshow-container">
     @foreach (Festival p in Model)
     {
-        <a href="/festival/@p.Id">Klik hier</a>
-
+        <a href="/festival/@p.Id">@p.Naam</a>
         <h2>@p.Naam </h2>
         <p></p>
     }
