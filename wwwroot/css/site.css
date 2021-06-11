@@ -110,14 +110,21 @@ footer h2{
     margin-left:50px;
 }
 
-.slideshow li {
-    float: left;
-    margin-left: 50px;
-    text-decoration: none;
+.goed{
+    text-decoration:none;
+    list-style-type:none;
+}
+.slideshow ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
 }
 
-
-.slideshow img{
+.logofestival{
     float: right;
     margin-right: 50px;
+   
+}
+.prijs{
+    font-size: 20px;
 }

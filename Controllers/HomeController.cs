@@ -62,6 +62,7 @@ namespace WebApplication1.Controllers
 						p.Id = Convert.ToInt32(reader["id"]);
 						p.Naam = reader["naam"].ToString();
 						p.Logo = reader["logo"].ToString();
+						p.Prijs = Convert.ToInt32(reader["prijs"]);
 
 						// voeg de naam toe aan de lijst met namen
 						Festival.Add(p);
@@ -124,6 +125,7 @@ namespace WebApplication1.Controllers
 							Naam = reader["Naam"].ToString(),
 							Beschrijving = reader["Beschrijving"].ToString(),
 							Datum = DateTime.Parse(reader["Datum"].ToString()),
+							
 						};
 						festival.Add(p);
 					}
@@ -138,6 +140,12 @@ namespace WebApplication1.Controllers
         {
 			return View();
         }
+
+		[Route("succes")]
+		public IActionResult succes()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		[Route("contact")]

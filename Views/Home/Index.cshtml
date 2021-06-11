@@ -11,8 +11,16 @@
         @foreach (Festival p in Model)
         {
         <li>
-            <a href="/festival/@p.Id">@p.Naam</a>
-            <img src="@p.Logo" alt="logo" width="100" height="70">
+            <a class="goed" href="/festival/@p.Id">@p.Naam</a>
+            <p class="prijs">De prijs voor dit festival is @p.Prijs euro</p>
+
+            <img class="logofestival" src="@p.Logo" alt="logo" width="150" height="120">
+            <br />
+            <br />
+            <br />
+            
+
+
         </li>
         }
     </ul>
