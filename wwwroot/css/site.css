@@ -110,3 +110,14 @@ footer h2{
     margin-left:50px;
 }
 
+.slideshow li {
+    float: left;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+
+.slideshow img{
+    float: right;
+    margin-right: 50px;
+}

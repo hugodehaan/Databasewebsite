@@ -6,11 +6,14 @@
 <h1>@ViewData["Title"]</h1>
 <h1 class="display-4>Welcome, @ViewData["user"]</h1>
 
-<div class="slideshow-container">
-    @foreach (Festival p in Model)
-    {
-        <a href="/festival/@p.Id">@p.Naam</a>
-        <h2>@p.Naam </h2>
-        <p></p>
-    }
+<div class="slideshow">
+    <ul>
+        @foreach (Festival p in Model)
+        {
+        <li>
+            <a href="/festival/@p.Id">@p.Naam</a>
+            <img src="@p.Logo" alt="logo" width="100" height="70">
+        </li>
+        }
+    </ul>
 </div>

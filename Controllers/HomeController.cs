@@ -61,6 +61,7 @@ namespace WebApplication1.Controllers
 						// selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
 						p.Id = Convert.ToInt32(reader["id"]);
 						p.Naam = reader["naam"].ToString();
+						p.Logo = reader["logo"].ToString();
 
 						// voeg de naam toe aan de lijst met namen
 						Festival.Add(p);
